@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "lib": ["es2015", "dom"],
+        "outDir": "./app/view/js/es6",
+        "sourceMap": true,
+        "jsx": "react"
+    },
+    "files": [
+        "app/src/action.ts",
+        "app/src/component.tsx",
+        "app/src/index.tsx",
+        "app/src/reducer.ts",
+        "app/src/formreducer.ts",
+        "app/src/actreducer.ts",
+        "app/src/store.ts"
+        //interface
+        //"app/src/ts/interface/chapter_03.ts"
+    ],
+    "filesGlob": [
+        "app/src/ts/**/*.tsx",
+        "app/src/ts/**/*.ts"
+    ],
+    "exclude": []
+}
