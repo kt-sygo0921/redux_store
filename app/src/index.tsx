@@ -1,19 +1,21 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {store} from './store';
-import {AppContainer,CountComponent} from './component';
+//import {store} from './store';
+import {fetchItemModel} from './util';
+import {App}  from './App';
 
-/*ReactDOM.render(
-    <Provider store= {store}>
-        <AppContainer />
-    </Provider>,
-    document.querySelector('.content')
-)*/
 
-ReactDOM.render(
-    <Provider store= {store}>
-        <CountComponent />
-    </Provider>,
-    document.querySelector('#content2')
-)
+window.addEventListener('load', () => {
+    fetchItemModel()
+        .then((res) => {
+            console.log(res.data);
+            ReactDOM.render(
+            // <Provider store= {store}>
+                <App listItems={ res.data } />,
+            // </Provider>,
+            document.querySelector('#content2')
+        )
+    })
+},false);
+

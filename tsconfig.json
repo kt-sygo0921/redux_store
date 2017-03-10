@@ -9,14 +9,13 @@
     },
     "files": [
         "app/src/action.ts",
-        "app/src/component.tsx",
+        "app/src/App.tsx",
         "app/src/index.tsx",
-        "app/src/reducer.ts",
-        "app/src/formreducer.ts",
-        "app/src/actreducer.ts",
-        "app/src/store.ts"
+        "app/src/combine_reducer.ts",
+        "app/src/util.ts",
+        "app/src/store.ts",
         //interface
-        //"app/src/ts/interface/chapter_03.ts"
+        "app/src/interface.ts"
     ],
     "filesGlob": [
         "app/src/ts/**/*.tsx",
