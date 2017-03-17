@@ -1,15 +1,18 @@
 import {ADDCART} from '../action';
+let initialstate = {
+    cartItems:[]
+}
 
-export function addCart_Reducer(state='',action) {
+let newCartItems = [];
+
+export function addCart_Reducer(state=initialstate,action) {
     switch(action.type) {
         case ADDCART:
-        return function() {
-            let newCartItems = this.state.cartitems.slice();
-            newCartItems.push(action.newCartItems);
-            return (<any>Object).assign({},state,{
-                cartItems: newCartItems
-            })
-        }
+        newCartItems.push(action.cartItems);
+        return (<any>Object).assign({},state,{
+            cartItems: newCartItems
+        })
+
         default:
         return state
     }

@@ -1,19 +1,21 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-//import {store} from './store';
+import configureStore from './store';
 import {fetchItemModel} from './util';
-import {App}  from './App';
+import {CountComponent}  from './App';
 
 
 window.addEventListener('load', () => {
     fetchItemModel()
         .then((res) => {
-            console.log(res.data);
+            const data:any = res;
             ReactDOM.render(
-            // <Provider store= {store}>
-                <App listItems={ res.data } />,
-            // </Provider>,
+            <Provider store= {configureStore}>
+                <div>
+                    <CountComponent listItems={data.data } />,
+                </div>
+            </Provider>,
             document.querySelector('#content2')
         )
     })

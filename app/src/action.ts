@@ -1,8 +1,8 @@
 export const ADDCART = 'ADDCART';
 
-export function addcart(newCartItems) {
+export function addCart(cartItems) {
     return {
         type:ADDCART,
-        cartItems:newCartItems
+        cartItems
     }
 }

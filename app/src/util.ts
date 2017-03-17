@@ -48,3 +48,9 @@ export function fetchItemModel() {
     }, 1000);
   });
 }
+
+export function calcTotalByItems(items) {
+  if (items.length === 0) { return 0; }
+  return items.map((item) => { return item.price; })
+              .reduce((prev, ttl) => { return prev + ttl; });
+}

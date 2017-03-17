@@ -1,4 +1,9 @@
-import {createStore} from 'redux';
-import {Provider, connect} from 'react-redux';
+import {Store,createStore,applyMiddleware} from 'redux';
+import combine from './reducer/combine';
+import * as createLogger from "redux-logger";
 
-//export const store = createStore(combine);
+const logger = (createLogger as any)();
+const createStoreWithMIddleWare = applyMiddleware(logger)(createStore);
+const configureStore = createStoreWithMIddleWare(combine)
+
+export default configureStore;
