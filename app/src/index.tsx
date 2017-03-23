@@ -12,9 +12,7 @@ window.addEventListener('load', () => {
             const data:any = res;
             ReactDOM.render(
             <Provider store= {configureStore}>
-                <div>
-                    <CountComponent listItems={data.data } />,
-                </div>
+                <CountComponent listItems={data.data } />
             </Provider>,
             document.querySelector('#content2')
         )

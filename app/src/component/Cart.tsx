@@ -1,7 +1,12 @@
 import * as React from 'react';
 import Item from './Item';
 
-export default class Cart extends React.Component<any,any> {
+interface If_Cart_props {
+    cartItems?: any[];
+    removeFromCart?():{};
+}
+
+export default class Cart extends React.Component<If_Cart_props,any> {
     render():JSX.Element {
         const {cartItems,removeFromCart} = this.props;
 
@@ -9,7 +14,7 @@ export default class Cart extends React.Component<any,any> {
         if(cartItems.length) {
             Content = cartItems.map((items,idx) => {
                 return (
-                    <Item key={idx} items = {...items} />
+                    <Item key={idx} items = {items} />
                 )
             });
         } else {

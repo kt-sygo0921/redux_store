@@ -1,10 +1,16 @@
 import * as React from 'react';
 import ItemList from './ItemList';
-import {If_item} from '../interface';
 import { calcTotalByItems } from '../util';
 import Cart from './Cart';
 
-export default class Container extends React.Component<any,any> {
+interface If_Container_props {
+    listItems: any[];
+    cartItems: any[];
+    removeFromCart?():{};
+    addCart(): {};
+}
+
+export default class Container extends React.Component<If_Container_props,any> {
     render():JSX.Element {
         const {listItems, cartItems, removeFromCart, addCart} = this.props;
         return (
