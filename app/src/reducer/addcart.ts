@@ -1,6 +1,6 @@
 import {ADDCART} from '../action';
 let initialstate = {
-    cartItems:{}
+    cartItems:[]
 }
 
 let newCartitems = [];
