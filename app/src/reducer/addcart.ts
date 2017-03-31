@@ -6,7 +6,6 @@ let initialstate = {
 let newCartitems = [];
 
 export function addCart_Reducer(state=initialstate,action) {
-    console.log('reducer')
     switch(action.type) {
         case ADDCART:
         newCartitems.push(action.cartItems)

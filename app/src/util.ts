@@ -1,4 +1,4 @@
-const DATA = [
+export const DATA = [
   {
     title: 'すごいHTML',
     author: 'HTML好き夫',
@@ -41,16 +41,8 @@ const DATA = [
  * ここではPromiseを使っていますが、コールバックでももちろんOKです。
  *
  */
-export function fetchItemModel() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ status: 200, data: DATA });
-    }, 1000);
-  });
-}
-
 export function calcTotalByItems(items) {
   if (items.length === 0) { return 0; }
-  return items.map((item) => { return item.price; })
-              .reduce((prev, ttl) => { return prev + ttl; });
+    return items.map((item) => { return item.price; })
+    .reduce((prev, ttl) => { return prev + ttl; });
 }

@@ -2,61 +2,57 @@ const webpack = require('webpack');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const glob = require('glob');
-const autoprefixer = require('autoprefixer');
-const precss = require('precss');
+
+//gzip化
+const CompressionPlugin = require('compression-webpack-plugin');
+var compress = require('compression');
 
 module.exports = [{
     resolve: {
         extensions: ['.ts', '.tsx', '.js']
     },
     entry: {
-        main:'./app/src/index.tsx'
+        main: './app/src/index.tsx'
     },
     output: {
-        publicPath:'',
-        path: path.join(__dirname , './app/view/js/'),
+        publicPath: '',
+        path: path.join(__dirname, './app/view/js/'),
         filename: "[name].js",
     },
     devtool: 'inline-source-map',
     module: {
-        rules:[{
+        rules: [{
             test: /\.tsx?$/,
             exclude: /node_modules/,
-            use:[
-                {
-                    loader: 'ts-loader'
-                }
-            ],
+            use: [{
+                loader: 'ts-loader'
+            }],
         }]
     },
-}
-,{
+}, {
     resolve: {
-        extensions:['.css','.scss']
+        extensions: ['.css', '.scss']
     },
     entry: {
-        bundle:'./app/src/sass/bundle.scss',
+        bundle: './app/src/sass/bundle.scss',
     },
     output: {
-        path: path.join(__dirname , '/app/view/css'),
+        path: path.join(__dirname, '/app/view/css'),
         filename: "[name].css"
     },
     module: {
-        rules:[
-            {
-                test:/\.(css|scss)$/,
-                use: ExtractTextPlugin.extract({
-                    fallbackLoader: 'style-loader',
-                    loader:["css-loader","postcss-loader"]
-                })
-            }
-        ]
+        rules: [{
+            test: /\.(css|scss)$/,
+            use: ExtractTextPlugin.extract({
+                fallbackLoader: 'style-loader',
+                loader: ["css-loader", "postcss-loader"]
+            })
+        }]
     },
     plugins: [
         new webpack.LoaderOptionsPlugin({
             options: {
-                postcss:[
+                postcss: [
                     require('autoprefixer')({
                         browsers: ['IE 9', 'IE 10', 'IE 11', 'last 2 versions']
                     })
@@ -65,13 +61,25 @@ module.exports = [{
         }),
         new ExtractTextPlugin("[name].css"),
         new BrowserSyncPlugin({
-            server: { baseDir: ['./app'] },
+            server: {
+                baseDir: ['./app'],
+                middleware: function(req, res, next) {
+                    var gzip = compress();
+                    gzip(req, res, next);
+                }
+            },
             directory: true,
-            files:[
+            files: [
                 'app/view/js/*.js',
                 'app/view/css/*.css'
             ]
+        }),
+        new CompressionPlugin({
+            asset: '[path].gz[query]',
+            algorithm: 'gzip',
+            test: /\.css$/,
+            threshold: 10240,
+            minRatio: 0.8
         })
     ]
- }
-];
+}];

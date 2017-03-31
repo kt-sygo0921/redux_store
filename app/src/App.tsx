@@ -4,23 +4,31 @@ import {connect} from 'react-redux';
 import Container from './component/container';
 import Header from './component/Header';
 import Footer from './component/Footer';
-import {addCart} from './action';
+import {addCart,request_user} from './action';
 
 
 interface If_App_props {
-    listItems: any[];
+    data: any[];
     cartItems: any[];
     addCart(): {};
 }
 
 export class App extends React.Component<If_App_props,any> {
+    constructor(props) {
+        super(props)
+    }
     render():JSX.Element {
-        const {listItems,cartItems,addCart} = this.props;//jsonデータを格納
+        const {
+            data,//jsonデータを格納
+            cartItems,
+            addCart
+        } = this.props;
+
         return (
             <div>
                 <Header />
                 <Container
-                listItems={listItems}
+                listItems={data}
                 cartItems={cartItems}
                 addCart = {addCart}
                 />
