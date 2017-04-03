@@ -11,11 +11,5 @@ export function addCart(cartItems) {
     }
 }
 
-export function request_user (data) {
-    console.log(data);
-    return {
-        type: REQUEST_USER,
-        data
-    }
-}
-//export const request_user = createAction(REQUEST_USER);
+
+export const request_user = createAction(REQUEST_USER);

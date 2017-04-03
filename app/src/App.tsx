@@ -11,11 +11,19 @@ interface If_App_props {
     data: any[];
     cartItems: any[];
     addCart(): {};
+    requestUser():{};
 }
 
 export class App extends React.Component<If_App_props,any> {
     constructor(props) {
         super(props)
+    }
+    componentWillMount() {
+        this.props.requestUser();
+        console.log('aaa');
+    }
+    componentDidMount() {
+        console.log(this.props)
     }
     render():JSX.Element {
         const {
@@ -23,7 +31,6 @@ export class App extends React.Component<If_App_props,any> {
             cartItems,
             addCart
         } = this.props;
-
         return (
             <div>
                 <Header />
@@ -46,6 +53,9 @@ function mapDispatchtoPorps(dispatch) {
     return {
         addCart(cartItems) {
             dispatch(addCart(cartItems));
+        },
+        requestUser() {
+            dispatch(request_user());
         }
     }
 }

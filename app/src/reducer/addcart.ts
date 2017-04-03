@@ -1,6 +1,7 @@
-import {ADDCART} from '../action';
+import {ADDCART,REQUEST_USER} from '../action';
 let initialstate = {
-    cartItems:[]
+    cartItems:[],
+    data:[]
 }
 
 let newCartitems = [];
@@ -12,8 +13,13 @@ export function addCart_Reducer(state=initialstate,action) {
         return (<any>Object).assign({},state,{
             cartItems: newCartitems
         })
+        case REQUEST_USER:
+        //console.table(action.data);
+        return (<any>Object).assign({},state,{
+            data:action.data
+        })
 
-        default:
+       default:
         return state
     }
 }

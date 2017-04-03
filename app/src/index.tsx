@@ -8,7 +8,7 @@ import {CountComponent}  from './App';
 window.addEventListener('load', () => {
     ReactDOM.render(
         <Provider store= {configureStore}>
-            <CountComponent/>
+            <CountComponent {...this.props} />
         </Provider>,
         document.querySelector('#content2')
     )
