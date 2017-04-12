@@ -1,7 +1,7 @@
 
 import {takeEvery,delay} from 'redux-saga';
 import {put, call,fork} from 'redux-saga/effects';
-import {REQUEST_USER,request_user} from './action';
+import {REQUEST_USER,request_user,SUCCESS} from './action';
 import {DATA} from './util';
 
 export function* fetchItemModel() {
@@ -11,7 +11,7 @@ export function* fetchItemModel() {
 }
 
 function* requestSaga() {
-    yield takeEvery(REQUEST_USER,fetchItemModel);
+    yield takeEvery(SUCCESS,fetchItemModel);
 }
 
 export function* rootSaga() {

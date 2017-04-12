@@ -13,10 +13,9 @@ const configureStore = (function(initialState) {
     const store = createStore(
         combine,
         initialState,
-        applyMiddleware(sagaMiddleware)
+        applyMiddleware(logger,sagaMiddleware)
     );
     sagaMiddleware.run(rootSaga);
-    console.log('ストア');
     return store;
 }());
 

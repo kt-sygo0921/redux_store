@@ -4,14 +4,14 @@ import {connect} from 'react-redux';
 import Container from './component/container';
 import Header from './component/Header';
 import Footer from './component/Footer';
-import {addCart,request_user} from './action';
+import {addCart,request_user,success_event} from './action';
 
 
 interface If_App_props {
     data: any[];
     cartItems: any[];
     addCart(): {};
-    requestUser():{};
+    success_event():{};
 }
 
 export class App extends React.Component<If_App_props,any> {
@@ -19,10 +19,11 @@ export class App extends React.Component<If_App_props,any> {
         super(props)
     }
     componentWillMount() {
-        this.props.requestUser();
-        console.log('aaa');
+        console.log(this.props.success_event);
+        this.props.success_event();
     }
     componentDidMount() {
+        //this.props.sucess_event();
         console.log(this.props)
     }
     render():JSX.Element {
@@ -38,7 +39,7 @@ export class App extends React.Component<If_App_props,any> {
                 listItems={data}
                 cartItems={cartItems}
                 addCart = {addCart}
-                />
+                 />
                 <Footer />
             </div>
         )
@@ -54,8 +55,8 @@ function mapDispatchtoPorps(dispatch) {
         addCart(cartItems) {
             dispatch(addCart(cartItems));
         },
-        requestUser() {
-            dispatch(request_user());
+        success_event() {
+            dispatch(success_event())
         }
     }
 }
