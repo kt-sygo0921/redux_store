@@ -13,6 +13,7 @@ export function addCart(cartItems) {
 }
 
 export function request_user(data) {
+    console.log('REQUEST_USER')
     return {
         type:REQUEST_USER,
         data

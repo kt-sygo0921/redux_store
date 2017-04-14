@@ -14,7 +14,7 @@ export function addCart_Reducer(state=initialstate,action) {
             cartItems: newCartitems
         })
         case REQUEST_USER:
-        console.table(action.data);
+        console.table('action');
         return (<any>Object).assign({},state,{
             data:action.data
         })

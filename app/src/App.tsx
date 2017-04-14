@@ -19,12 +19,11 @@ export class App extends React.Component<If_App_props,any> {
         super(props)
     }
     componentWillMount() {
-        console.log(this.props.success_event);
         this.props.success_event();
     }
     componentDidMount() {
         //this.props.sucess_event();
-        console.log(this.props)
+        //console.log(this.props)
     }
     render():JSX.Element {
         const {
