@@ -22,7 +22,7 @@ export class App extends React.Component<If_App_props,any> {
         this.props.success_event();
     }
     componentDidMount() {
-        //this.props.sucess_event();
+        //this.props.success_event();
         //console.log(this.props)
     }
     render():JSX.Element {
