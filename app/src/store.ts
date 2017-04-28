@@ -10,12 +10,10 @@ import {rootSaga} from './saga';
 
 const configureStore = (function(initialState) {
     const sagaMiddleware = createSagaMiddleware();
-    const store = createStore(
-        combine,
-        initialState,
-        applyMiddleware(logger,sagaMiddleware)
-    );
+    const enhancer = applyMiddleware(sagaMiddleware);
+    const store = createStore(combine,enhancer);
     sagaMiddleware.run(rootSaga);
+    console.log(store)
     return store;
 }());
 

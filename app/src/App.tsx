@@ -54,6 +54,9 @@ function mapDispatchtoPorps(dispatch) {
         addCart(cartItems) {
             dispatch(addCart(cartItems));
         },
+        removeCart() {
+
+        },
         success_event() {
             dispatch(success_event())
         }

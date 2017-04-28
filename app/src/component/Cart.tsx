@@ -3,18 +3,19 @@ import Item from './Item';
 
 interface If_Cart_props {
     cartItems?: any[];
-    removeFromCart?():{};
+    removeCart?():{};
 }
 
 export default class Cart extends React.Component<If_Cart_props,any> {
     render():JSX.Element {
-        const {cartItems,removeFromCart} = this.props;
+        const {cartItems,removeCart} = this.props;
+        console.table(cartItems);
 
         let Content;
         if(cartItems.length) {
             Content = cartItems.map((items,idx) => {
                 return (
-                    <Item key={idx} items = {items} />
+                    <Item key={idx} items = {items} actionEvent = {removeCart}/>
                 )
             });
         } else {
