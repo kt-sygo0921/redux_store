@@ -22,7 +22,7 @@ export function* rootSaga() {
 }
 
 const get_Json = () => {
-    return axios.get('http://192.168.64.33:3000/src/data.json')
+    return axios.get('http://localhost:3000/src/data.json')
     .then((data) => {
         return data
         //put(request_user(data.data));

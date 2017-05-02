@@ -6,6 +6,8 @@ let initialstate = {
 
 let newCartitems = [];
 
+console.table(newCartitems)
+
 export function addCart_Reducer(state=initialstate,action) {
     switch(action.type) {
         case ADDCART:

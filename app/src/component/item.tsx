@@ -18,7 +18,7 @@ export default class Item extends React.Component<If_item_props,any> {
     }
     handleClick() {
         this.props.actionEvent(this.props.items);
-        console.log('handleclick');
+        console.log(this.props.items);
     }
     render():JSX.Element {
         const {title,author,desc,price} = this.props.items;

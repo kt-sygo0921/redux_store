@@ -8,7 +8,7 @@ export function addCart(cartItems) {
     console.log(cartItems);
     return {
         type:ADDCART,
-        cartItems
+        cartItems:cartItems
     }
 }
 

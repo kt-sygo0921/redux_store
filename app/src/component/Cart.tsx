@@ -2,6 +2,7 @@ import * as React from 'react';
 import Item from './Item';
 
 interface If_Cart_props {
+    actionEvent():{};
     cartItems?: any[];
     removeCart?():{};
 }
@@ -9,8 +10,6 @@ interface If_Cart_props {
 export default class Cart extends React.Component<If_Cart_props,any> {
     render():JSX.Element {
         const {cartItems,removeCart} = this.props;
-        console.table(cartItems);
-
         let Content;
         if(cartItems.length) {
             Content = cartItems.map((items,idx) => {
