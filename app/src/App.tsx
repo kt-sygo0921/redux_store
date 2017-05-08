@@ -8,9 +8,11 @@ import {addCart,request_user,success_event} from './action';
 
 
 interface If_App_props {
-    data: any[];
-    cartItems: any[];
-    addCart(): {};
+    addCart_Reducer: {
+        data: any[],
+        cartItems: any[],
+    },
+    addCart(): {},
     success_event():{};
 }
 
@@ -28,9 +30,11 @@ export class App extends React.Component<If_App_props,any> {
     render():JSX.Element {
         const {
             data,//jsonデータを格納
-            cartItems,
-            addCart
-        } = this.props;
+            cartItems
+        } = this.props.addCart_Reducer;
+        console.log(this.props.addCart_Reducer);
+
+        const {addCart} = this.props;
         return (
             <div>
                 <Header />
@@ -46,7 +50,7 @@ export class App extends React.Component<If_App_props,any> {
 }
 
 function mapStatetoProps(state) {
-    return state.addCart_Reducer
+    return state;
 }
 
 function mapDispatchtoPorps(dispatch) {
