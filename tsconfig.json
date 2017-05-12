@@ -8,14 +8,14 @@
         "jsx": "react"
     },
     "files": [
-        "app/src/action.ts",
-        "app/src/App.tsx",
-        "app/src/index.tsx",
-        "app/src/combine_reducer.ts",
-        "app/src/util.ts",
-        "app/src/store.ts",
+        "app/src/ts/action.ts",
+        "app/src/ts/App.tsx",
+        "app/src/ts/index.tsx",
+        "app/src/ts/combine_reducer.ts",
+        "app/src/ts/util.ts",
+        "app/src/ts/store.ts",
         //interface
-        "app/src/interface.ts"
+        "app/src/ts/interface.ts"
     ],
     "filesGlob": [
         "app/src/ts/**/*.tsx",

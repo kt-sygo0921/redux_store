@@ -6,6 +6,7 @@ interface If_item_props {
         author:string;
         desc:string;
         price:number;
+
     }
     actionEvent?(items:object):{};
     btnLabel?:string;
@@ -17,8 +18,8 @@ export default class Item extends React.Component<If_item_props,any> {
         this.handleClick=this.handleClick.bind(this);
     }
     handleClick() {
+        console.log(this)
         this.props.actionEvent(this.props.items);
-        console.log(this.props.items);
     }
     render():JSX.Element {
         const {title,author,desc,price} = this.props.items;
@@ -29,7 +30,7 @@ export default class Item extends React.Component<If_item_props,any> {
                 <p className="Item__desc">{desc}</p>
                 <p className="Item__price">{price}円</p>
                 <div className="Item__btnWrap">
-                    <button type="button" className="Btn" onClick={this.handleClick}>カートに入れる</button>
+                    <button type="button" className="Btn" onClick={this.handleClick}>{this.props.btnLabel}</button>
                 </div>
             </div>
         );

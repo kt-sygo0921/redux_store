@@ -7,12 +7,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 var compress = require('compression');
 
+
 module.exports = [{
     resolve: {
         extensions: ['.ts', '.tsx', '.js']
     },
     entry: {
-        main: './app/src/index.tsx'
+        main: './app/src/ts/index.tsx'
     },
     output: {
         publicPath: '',
@@ -28,7 +29,7 @@ module.exports = [{
                 loader: 'ts-loader'
             }],
         }]
-    },
+    }
 }, {
     resolve: {
         extensions: ['.css', '.scss']
@@ -45,7 +46,7 @@ module.exports = [{
             test: /\.(css|scss)$/,
             use: ExtractTextPlugin.extract({
                 fallbackLoader: 'style-loader',
-                loader: ["css-loader", "postcss-loader"]
+                loader: ["css-loader", "sass-loader", "postcss-loader"]
             })
         }]
     },

@@ -1,0 +1,54 @@
+@charset 'utf-8';
+
+/*
+foundation -- base.scss
+----------------------------------------*/
+// 基本はdmm本体のbase.cssにあるためここはOLGフロア限定
+p,
+ul,
+li,
+ol,
+dl,
+dd,
+dt {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: none;
+}
+
+#d-header ~ div#w {
+    padding-top: 0px;
+}
+.d-hd-ie7 ~ div#w ,
+.d-hd-ie8 ~ div#w,
+.d-hd-ie9 ~ div#w {
+    padding-top: 0px;
+}
+
+/* ===== #main-ntg  */
+#main-ntg {
+    margin: 0 -12px;
+    padding: 0 0 20px;
+    background: #f3f3f3;
+    text-align: center;
+    input[type="file"],
+    input[type="radio"],
+    select {
+        cursor: pointer;
+    }
+    .tx24 {
+        padding-left: 6px;
+        font-size: 24px;
+    }
+    .data-num {
+        padding: 0 0 0 5px;
+        font-weight: normal;
+        font-size: 10px;
+    }
+    // input枠のサイズ調整
+    .d-modform-3 {
+        width: 4em;
+    }
+}

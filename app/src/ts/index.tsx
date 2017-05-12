@@ -4,11 +4,7 @@ import {Provider} from 'react-redux';
 import configureStore from './store';
 import {CountComponent}  from './App';
 
-let initialstate = {}
-
-const store = configureStore(initialstate);
-
-console.log(store);
+const store = configureStore();
 
 
 window.addEventListener('load', () => {

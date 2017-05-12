@@ -1,0 +1,43 @@
+/*
+foundation -- base.scss
+----------------------------------------*/
+p,
+ul,
+li,
+ol,
+dl,
+dd,
+dt {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style: none; }
+
+#d-header ~ div#w {
+  padding-top: 0px; }
+
+.d-hd-ie7 ~ div#w,
+.d-hd-ie8 ~ div#w,
+.d-hd-ie9 ~ div#w {
+  padding-top: 0px; }
+
+/* ===== #main-ntg  */
+#main-ntg {
+  margin: 0 -12px;
+  padding: 0 0 20px;
+  background: #f3f3f3;
+  text-align: center; }
+  #main-ntg input[type="file"],
+  #main-ntg input[type="radio"],
+  #main-ntg select {
+    cursor: pointer; }
+  #main-ntg .tx24 {
+    padding-left: 6px;
+    font-size: 24px; }
+  #main-ntg .data-num {
+    padding: 0 0 0 5px;
+    font-weight: normal;
+    font-size: 10px; }
+  #main-ntg .d-modform-3 {
+    width: 4em; }

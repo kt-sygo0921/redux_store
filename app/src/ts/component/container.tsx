@@ -12,7 +12,6 @@ interface If_Container_props {
 
 export default class Container extends React.Component<If_Container_props,any> {
     render():JSX.Element {
-        console.log(this.props)
         const {listItems, cartItems, removeCart, addCart} = this.props;
         return (
             <main className="Container">

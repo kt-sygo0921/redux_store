@@ -8,13 +8,12 @@ import {rootSaga} from './saga';
 // const createStoreWithMIddleWare = applyMiddleware(logger)(createStore);
 // const configureStore = createStoreWithMIddleWare(combine)
 
-export default function configureStore (initialState) {
+export default function configureStore () {
     const sagaMiddleware = createSagaMiddleware();
-    const store = createStore(combine,initialState,
-    applyMiddleware(sagaMiddleware,logger)
+    const store = createStore(combine,
+    applyMiddleware(sagaMiddleware)
     );
     sagaMiddleware.run(rootSaga);
-    console.log('aaa');
     return store;
 };
 

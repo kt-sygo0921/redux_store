@@ -4,15 +4,14 @@ import {connect} from 'react-redux';
 import Container from './component/container';
 import Header from './component/Header';
 import Footer from './component/Footer';
-import {addCart,request_user,success_event} from './action';
+import {addCart,removeCart,request_user,success_event} from './action';
 
 
 interface If_App_props {
-    addCart_Reducer: {
         data: any[],
         cartItems: any[],
-    },
-    addCart(): {},
+        addCart(): {},
+        removeCart():{,}
     success_event():{};
 }
 
@@ -30,11 +29,10 @@ export class App extends React.Component<If_App_props,any> {
     render():JSX.Element {
         const {
             data,//jsonデータを格納
-            cartItems
-        } = this.props.addCart_Reducer;
-        console.log(this.props.addCart_Reducer);
-
-        const {addCart} = this.props;
+            cartItems,
+            addCart,
+            removeCart
+        } = this.props;
         return (
             <div>
                 <Header />
@@ -42,6 +40,7 @@ export class App extends React.Component<If_App_props,any> {
                 listItems={data}
                 cartItems={cartItems}
                 addCart = {addCart}
+                removeCart = {removeCart}
                  />
                 <Footer />
             </div>
@@ -50,16 +49,16 @@ export class App extends React.Component<If_App_props,any> {
 }
 
 function mapStatetoProps(state) {
-    return state;
+    return state.addCart_Reducer;
 }
 
-function mapDispatchtoPorps(dispatch) {
+function mapDispatchtoProps(dispatch) {
     return {
         addCart(cartItems) {
             dispatch(addCart(cartItems));
         },
-        removeCart() {
-
+        removeCart(cartItems) {
+            dispatch(removeCart(cartItems));
         },
         success_event() {
             dispatch(success_event())
@@ -69,5 +68,5 @@ function mapDispatchtoPorps(dispatch) {
 
 export const CountComponent = connect(
     mapStatetoProps,
-    mapDispatchtoPorps
+    mapDispatchtoProps
 )(App)
